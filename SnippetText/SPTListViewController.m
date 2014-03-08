@@ -46,7 +46,7 @@
 #endif
     [self.adMobView loadRequest:request];
     self.adMobView.hidden = YES;
-    [self.view addSubview:self.adMobView];
+//    [self.view addSubview:self.adMobView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
