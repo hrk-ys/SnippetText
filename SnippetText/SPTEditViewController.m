@@ -34,6 +34,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.screenName = @"EditView";
     
     self.isCreateMode = self.snippet ? NO : YES;
     

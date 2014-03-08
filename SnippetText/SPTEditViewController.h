@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPTEditViewController : UIViewController
+#import <GAITrackedViewController.h>
+
+@interface SPTEditViewController : GAITrackedViewController
 
 @property (nonatomic) SPTSnippet* snippet;
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GAITrackedViewController.h>
 
-@interface SPTListViewController : UIViewController
+@interface SPTListViewController : GAITrackedViewController
 
 @end

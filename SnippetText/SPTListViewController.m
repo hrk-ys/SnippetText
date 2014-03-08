@@ -12,6 +12,7 @@
 
 #import <GADBannerView.h>
 #import <GADRequest.h>
+#import <GAI.h>
 
 @interface SPTListViewController ()
 <UITableViewDataSource, UITableViewDelegate, GADBannerViewDelegate>
@@ -29,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.screenName  = @"ListView";
     
     self.dataSource = [SPTSnippet findAllSortedBy:@"orderNum" ascending:YES].mutableCopy;
     
@@ -46,7 +48,7 @@
 #endif
     [self.adMobView loadRequest:request];
     self.adMobView.hidden = YES;
-//    [self.view addSubview:self.adMobView];
+    [self.view addSubview:self.adMobView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
