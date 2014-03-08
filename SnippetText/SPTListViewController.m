@@ -16,11 +16,11 @@
 @interface SPTListViewController ()
 <UITableViewDataSource, UITableViewDelegate, GADBannerViewDelegate>
 
-@property (nonatomic) NSMutableArray *dataSource;
+@property (nonatomic) NSMutableArray             *dataSource;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic) GADBannerView *adMobView;
-@property (nonatomic) BOOL                          adMobIsVisible;
+@property (nonatomic) BOOL           adMobIsVisible;
 @end
 
 @implementation SPTListViewController
@@ -32,8 +32,8 @@
     
     self.dataSource = [SPTSnippet findAllSortedBy:@"orderNum" ascending:YES].mutableCopy;
     
-    self.adMobView = [[GADBannerView alloc] init];
-    self.adMobView.height = 0;
+    self.adMobView                    = [[GADBannerView alloc] init];
+    self.adMobView.height             = 0;
     self.adMobView.delegate           = self;
     self.adMobView.adUnitID           = @"ca-app-pub-1525765559709019/5252864142";
     self.adMobView.rootViewController = self;
@@ -124,7 +124,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return indexPath.row != 0;
@@ -167,7 +166,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     self.dataSource = [NSArray arrayWithArray:array].mutableCopy;
     
-    for (int i = minIndex; i <= maxIndex; i++) {
+    for (NSUInteger i = minIndex; i <= maxIndex; i++) {
         SPTSnippet *s = self.dataSource[ i ];
         s.orderNum = @(orderNo);
         orderNo++;
@@ -194,12 +193,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
-
-
-- (IBAction)tappedEditButton:(id)sender {
-    [self.tableView setEditing:! self.tableView.editing];
+- (IBAction)tappedEditButton:(id)sender
+{
+    [self.tableView setEditing:!self.tableView.editing];
+    
+    UIBarButtonItem *editButton = self.navigationItem.rightBarButtonItem;
+    if (self.tableView.editing) {
+        editButton.title = @"Cancel";
+    } else {
+        editButton.title = @"Edit";
+    }
 }
-
 
 #pragma mark -
 #pragma mark admod
@@ -212,14 +216,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     self.adMobIsVisible = YES;
     
     self.adMobView.originY = self.view.height;
-    self.adMobView.hidden = NO;
+    self.adMobView.hidden  = NO;
     [UIView animateWithDuration:0.3f
                      animations:^{
                          self.adMobView.originY -= self.adMobView.height;
-                         self.tableView.height = self.view.height - self.adMobView.height;
                      } completion:^(BOOL finished) {
                          UIEdgeInsets insets = self.tableView.scrollIndicatorInsets;
-                         insets.bottom = - self.adMobView.height;
+                         insets.bottom = -self.adMobView.height;
                          self.tableView.scrollIndicatorInsets = insets;
                      }];
 }
@@ -230,8 +233,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (!self.adMobIsVisible) { return; }
     self.adMobIsVisible = NO;
     
-    self.tableView.height = self.view.height;
-     [UIView animateWithDuration:0.3f
+    [UIView animateWithDuration:0.3f
                      animations:^{
                          self.adMobView.originY = self.view.height;
                      } completion:^(BOOL finished) {
@@ -241,6 +243,5 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                          self.tableView.scrollIndicatorInsets = insets;
                      }];
 }
-
 
 @end

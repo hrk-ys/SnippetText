@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC4AEB26FE4B4305A42A7D9B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE177FAC288646B281DD895C /* libPods.a */; };
+		E9087A6D18CB50BC0072F0A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9087A6C18CB50BC0072F0A1 /* Settings.bundle */; };
 		E9D5E35718CAD8AC002D5E89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D5E35618CAD8AC002D5E89 /* Foundation.framework */; };
 		E9D5E35918CAD8AC002D5E89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D5E35818CAD8AC002D5E89 /* CoreGraphics.framework */; };
 		E9D5E35B18CAD8AC002D5E89 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D5E35A18CAD8AC002D5E89 /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		AAE9F4CEB40449B8AAF9F4D4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BE177FAC288646B281DD895C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9087A6C18CB50BC0072F0A1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E9D5E35318CAD8AC002D5E89 /* SnippetText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnippetText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D5E35618CAD8AC002D5E89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9D5E35818CAD8AC002D5E89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -157,6 +159,7 @@
 				E9D5E35F18CAD8AC002D5E89 /* InfoPlist.strings */,
 				E9D5E36218CAD8AC002D5E89 /* main.m */,
 				E9D5E36418CAD8AC002D5E89 /* SnippetText-Prefix.pch */,
+				E9087A6C18CB50BC0072F0A1 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9087A6D18CB50BC0072F0A1 /* Settings.bundle in Resources */,
 				E9D5E36F18CAD8AD002D5E89 /* Images.xcassets in Resources */,
 				E9D5E36118CAD8AC002D5E89 /* InfoPlist.strings in Resources */,
 				E9D5E36A18CAD8AD002D5E89 /* Main.storyboard in Resources */,

@@ -31,8 +31,8 @@
     [self.navigationBar setTintColor:[UIColor whiteColor]];
     
     [self.navigationBar setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor] }];
-    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:0.000 alpha:0.700]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    [self.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor whiteColor]]];
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithWhite:0.250 alpha:0.700]] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [self.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor lightGrayColor]]];
 }
 
 - (void)didReceiveMemoryWarning

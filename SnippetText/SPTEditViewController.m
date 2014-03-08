@@ -8,8 +8,6 @@
 
 #import "SPTEditViewController.h"
 
-#import <BlocksKit.h>
-
 @interface SPTEditViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
@@ -65,8 +63,8 @@
 
 - (void)setupCornerRadius:(UIView*)view
 {
-    view.layer.cornerRadius = 5.0f;
-    view.layer.borderColor = [UIColor whiteColor].CGColor;
+    view.layer.cornerRadius = 3.0f;
+    view.layer.borderColor = [UIColor lightGrayColor].CGColor;
     view.layer.borderWidth = 1.0f;
     view.clipsToBounds = YES;
     view.backgroundColor = [UIColor clearColor];

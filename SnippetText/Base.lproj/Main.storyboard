@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GnD-9W-flv">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GnD-9W-flv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.22860054347826086" green="0.22860054347826086" blue="0.22860054347826086" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,8 +90,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="suu-W9-q02" firstAttribute="top" secondItem="GnD-9W-flv" secondAttribute="bottom" id="0KC-Bh-th7"/>
+                            <constraint firstAttribute="trailing" secondItem="GnD-9W-flv" secondAttribute="trailing" id="JZt-Uz-UDK"/>
+                            <constraint firstItem="GnD-9W-flv" firstAttribute="top" secondItem="B7s-DQ-BfB" secondAttribute="top" id="eRz-Y8-yW5"/>
+                            <constraint firstItem="GnD-9W-flv" firstAttribute="leading" secondItem="B7s-DQ-BfB" secondAttribute="leading" id="f4m-GT-YF7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Snippet Text" id="Dzp-IX-Db6">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Ji7-YU-Knv"/>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="bUG-fE-ob9">
                             <connections>
                                 <action selector="tappedEditButton:" destination="rr6-7v-aax" id="Ydb-AW-xYK"/>
@@ -151,7 +158,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE1-9j-kbc">
                                 <rect key="frame" x="20" y="77" width="42" height="24"/>
