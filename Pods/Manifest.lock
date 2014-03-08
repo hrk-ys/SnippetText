@@ -1,0 +1,52 @@
+PODS:
+  - BlocksKit (2.0.0):
+    - BlocksKit/All
+  - BlocksKit/All (2.0.0):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.0.0)
+  - BlocksKit/DynamicDelegate (2.0.0):
+    - libffi
+  - BlocksKit/MessageUI (2.0.0):
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.0.0):
+    - BlocksKit/DynamicDelegate
+  - CocoaLumberjack (1.8.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.8.1)
+  - CocoaLumberjack/Extensions (1.8.1):
+    - CocoaLumberjack/Core
+  - Google-Mobile-Ads-SDK (6.8.0)
+  - GoogleAnalytics-iOS-SDK (3.0.3)
+  - HYUtils (0.0.4):
+    - CocoaLumberjack
+  - JDStatusBarNotification (1.4.7)
+  - libffi (3.0.13)
+  - MagicalRecord/Shorthand (2.2)
+
+DEPENDENCIES:
+  - BlocksKit (= 2.0.0)
+  - Google-Mobile-Ads-SDK (= 6.8.0)
+  - GoogleAnalytics-iOS-SDK (= 3.0.3)
+  - HYUtils (from `https://github.com/hrk-ys/HYUtils.git`, commit `806679b2773695602825a57ff1d7b8edb4e63bdb`)
+  - JDStatusBarNotification (~> 1.4.7)
+  - MagicalRecord/Shorthand (= 2.2)
+
+EXTERNAL SOURCES:
+  HYUtils:
+    :commit: 806679b2773695602825a57ff1d7b8edb4e63bdb
+    :git: https://github.com/hrk-ys/HYUtils.git
+
+SPEC CHECKSUMS:
+  BlocksKit: b29ee3f28ba06a09f5c64987314ce5b75b2c3962
+  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
+  Google-Mobile-Ads-SDK: 0046ccf75440cf7cac163430e7c2ae9613b79a0c
+  GoogleAnalytics-iOS-SDK: 7b0e55cfe5e70d60478a7b105f15ac71e8bc373e
+  HYUtils: 474bd5119cdc256db7c1869163b336255e39fdc9
+  JDStatusBarNotification: 8801f6fcd7e2c2a8b01aaea5a9b049b1cc395491
+  libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
+  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
+
+COCOAPODS: 0.29.0
