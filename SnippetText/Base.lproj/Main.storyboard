@@ -66,7 +66,7 @@
                                                         <segue destination="dsL-2v-0GD" kind="push" identifier="edit" id="8mG-rA-Gjf"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Snippet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-xa-RFG">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snippet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-xa-RFG">
                                                     <rect key="frame" x="20" y="13" width="248" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -76,7 +76,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="8bC-U7-c7F" firstAttribute="top" secondItem="ZS7-3i-cbM" secondAttribute="top" id="9jV-ES-S7w"/>
+                                                <constraint firstItem="RWc-xa-RFG" firstAttribute="top" secondItem="ZS7-3i-cbM" secondAttribute="top" constant="13" id="I85-Or-6eU"/>
+                                                <constraint firstAttribute="bottom" secondItem="RWc-xa-RFG" secondAttribute="bottom" constant="9" id="MT8-Kh-XEP"/>
+                                                <constraint firstItem="8bC-U7-c7F" firstAttribute="leading" secondItem="RWc-xa-RFG" secondAttribute="trailing" constant="8" id="lrT-Q0-EOe"/>
                                                 <constraint firstAttribute="trailing" secondItem="8bC-U7-c7F" secondAttribute="trailing" id="oAZ-rA-xNf"/>
+                                                <constraint firstItem="RWc-xa-RFG" firstAttribute="leading" secondItem="ZS7-3i-cbM" secondAttribute="leading" constant="20" id="t4E-JS-G0r"/>
                                                 <constraint firstAttribute="bottom" secondItem="8bC-U7-c7F" secondAttribute="bottom" id="v1c-kq-gRy"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -141,12 +145,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YHZ-GG-eiO" userLabel="titleWarpView">
-                                <rect key="frame" x="70" y="180" width="230" height="30"/>
+                                <rect key="frame" x="70" y="180" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4oN-7A-TLc">
-                                <rect key="frame" x="79" y="180" width="212" height="30"/>
+                                <rect key="frame" x="79" y="180" width="151" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -158,7 +162,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE1-9j-kbc">
                                 <rect key="frame" x="20" y="77" width="42" height="24"/>
@@ -181,6 +185,40 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eAV-ZR-L0h">
+                                <rect key="frame" x="251" y="180" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.50983157467532469" green="0.50983157467532469" blue="0.50983157467532469" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="secretValueChanged:" destination="dsL-2v-0GD" eventType="valueChanged" id="e1X-0f-rte"/>
+                                </connections>
+                            </switch>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H4h-dt-H14" userLabel="secureInputView">
+                                <rect key="frame" x="70" y="77" width="230" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ecd-60-1IB" userLabel="contentWarpView">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Shv-Qs-ydw">
+                                        <rect key="frame" x="8" y="0.0" width="215" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="シークレットモードでは改行コードは使用できません。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="215" translatesAutoresizingMaskIntoConstraints="NO" id="CIL-et-L69">
+                                        <rect key="frame" x="8" y="37" width="215" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2286005435" green="0.2286005435" blue="0.2286005435" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -193,6 +231,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="contentField" destination="Shv-Qs-ydw" id="PBH-ff-n9T"/>
+                        <outlet property="contentWrapView" destination="Ecd-60-1IB" id="vCm-eb-oZo"/>
+                        <outlet property="secretInputView" destination="H4h-dt-H14" id="k7x-js-uZL"/>
+                        <outlet property="secretSwitch" destination="eAV-ZR-L0h" id="rYf-bu-vVo"/>
                         <outlet property="textView" destination="ueg-RL-bpd" id="sBX-XJ-3Y8"/>
                         <outlet property="titleField" destination="4oN-7A-TLc" id="l08-9e-pba"/>
                         <outlet property="titleWrapView" destination="YHZ-GG-eiO" id="sGx-Np-jQP"/>

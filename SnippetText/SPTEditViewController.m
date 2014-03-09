@@ -13,8 +13,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UIView *titleWrapView;
+@property (weak, nonatomic) IBOutlet UISwitch *secretSwitch;
+
+@property (weak, nonatomic) IBOutlet UIView *secretInputView;
 
 @property (nonatomic) BOOL isCreateMode;
+@property (weak, nonatomic) IBOutlet UIView *contentWrapView;
+@property (weak, nonatomic) IBOutlet UITextField *contentField;
 
 @property (nonatomic) NSManagedObjectContext* context;
 @end
@@ -53,13 +58,16 @@
         
         self.titleField.text = self.snippet.title;
         self.textView.text = self.snippet.content;
+        self.contentField.text = self.snippet.content;
+        self.secretSwitch.on = self.snippet.secretValue;
     }
     
     [self setupCornerRadius:self.titleWrapView];
     [self setupCornerRadius:self.textView];
+    [self setupCornerRadius:self.contentWrapView];
     
+    [self updateContentInputViews];
     
-    [self.textView becomeFirstResponder];
 }
 
 - (void)setupCornerRadius:(UIView*)view
@@ -69,6 +77,28 @@
     view.layer.borderWidth = 1.0f;
     view.clipsToBounds = YES;
     view.backgroundColor = [UIColor clearColor];
+}
+
+- (void)updateContentInputViews
+{
+    if (self.secretSwitch.on) {
+        self.textView.hidden = YES;
+        self.secretInputView.hidden = NO;
+        
+        self.contentField.text = self.textView.text;
+        
+        if (![self.contentField isFirstResponder] && ![self.titleField isFirstResponder]) {
+            [self.contentField becomeFirstResponder];
+        }
+    } else {
+        self.textView.hidden = NO;
+        self.secretInputView.hidden = YES;
+        
+        self.textView.text = self.contentField.text;
+        if (![self.textView isFirstResponder] && ![self.titleField isFirstResponder]) {
+            [self.textView becomeFirstResponder];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,17 +117,29 @@
     }
 }
 
+- (IBAction)secretValueChanged:(id)sender {
+    [self updateContentInputViews];
+}
+
+
+
 - (IBAction)tappedDoneButton:(id)sender {
+    BOOL secure = self.secretSwitch.on;
     NSString* title = self.titleField.text;
-    NSString* content = self.textView.text;
+    NSString* content = secure ? self.contentField.text : self.textView.text;
     
     if (content.length == 0) {
         [UIAlertView showMessage:@"Textが入力されていません"];
         return;
     }
+    if (secure && title.length == 0) {
+        [UIAlertView showMessage:@"Titleが入力されていません"];
+        return;
+    }
     
     self.snippet.title = title;
     self.snippet.content = content;
+    self.snippet.secret = @(secure);
     
     [self.context saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
         
