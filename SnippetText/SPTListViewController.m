@@ -85,6 +85,8 @@
     UILabel    *label   = (UILabel *) [cell viewWithTag:1];
     label.text = snippet.title && snippet.title.length > 0 ? snippet.title : snippet.content;
     
+    UIButton    *editButton = (UIButton*)[cell viewWithTag:2];
+    editButton.hidden = !self.tableView.editing;
     [cell setNeedsLayout];
 }
 
@@ -154,6 +156,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+    if (destinationIndexPath.row == 0) {
+        
+        [tableView reloadData];
+
+        return;
+    }
     SPTSnippet *snippet = [self snippetAtIndexPath:sourceIndexPath];
     
     NSUInteger minIndex = MIN(sourceIndexPath.row, destinationIndexPath.row) - 1;
@@ -198,6 +206,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (IBAction)tappedEditButton:(id)sender
 {
     [self.tableView setEditing:!self.tableView.editing];
+    [self.tableView.visibleCells enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self configureCell:obj];
+    }];
     
     UIBarButtonItem *editButton = self.navigationItem.rightBarButtonItem;
     if (self.tableView.editing) {
