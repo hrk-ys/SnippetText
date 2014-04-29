@@ -234,9 +234,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                      animations:^{
                          self.adMobView.originY -= self.adMobView.height;
                      } completion:^(BOOL finished) {
-                         UIEdgeInsets insets = self.tableView.scrollIndicatorInsets;
-                         insets.bottom = -self.adMobView.height;
-                         self.tableView.scrollIndicatorInsets = insets;
+                         UIEdgeInsets insets = self.tableView.contentInset;
+                         insets.bottom = +self.adMobView.height;
+                         self.tableView.contentInset = insets;
                      }];
 }
 
@@ -251,9 +251,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                          self.adMobView.originY = self.view.height;
                      } completion:^(BOOL finished) {
                          self.adMobView.hidden = YES;
-                         UIEdgeInsets insets = self.tableView.scrollIndicatorInsets;
+                         UIEdgeInsets insets = self.tableView.contentInset;
                          insets.bottom = 0;
-                         self.tableView.scrollIndicatorInsets = insets;
+                         self.tableView.contentInset = insets;
                      }];
 }
 
