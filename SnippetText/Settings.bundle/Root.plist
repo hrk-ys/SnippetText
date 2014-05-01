@@ -10,7 +10,7 @@
 			<key>Title</key>
 			<string>Version</string>
 			<key>DefaultValue</key>
-			<string>1.1.0</string>
+			<string>1.1.1</string>
 			<key>Key</key>
 			<string>Version</string>
 		</dict>
