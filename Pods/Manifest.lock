@@ -12,10 +12,11 @@ PODS:
   - MagicalRecord/Shorthand (2.2)
 
 DEPENDENCIES:
+  - CocoaLumberjack (= 1.8.1)
   - Google-Mobile-Ads-SDK (= 6.8.0)
   - GoogleAnalytics-iOS-SDK (= 3.0.3)
   - HYUtils (from `https://github.com/hrk-ys/HYUtils.git`, commit `806679b2773695602825a57ff1d7b8edb4e63bdb`)
-  - JDStatusBarNotification (~> 1.4.7)
+  - JDStatusBarNotification (= 1.4.7)
   - MagicalRecord/Shorthand (= 2.2)
 
 EXTERNAL SOURCES:
@@ -24,11 +25,11 @@ EXTERNAL SOURCES:
     :git: https://github.com/hrk-ys/HYUtils.git
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 020378ec400d658923bf5887178394f65f052c90
-  Google-Mobile-Ads-SDK: 0046ccf75440cf7cac163430e7c2ae9613b79a0c
-  GoogleAnalytics-iOS-SDK: 7b0e55cfe5e70d60478a7b105f15ac71e8bc373e
+  CocoaLumberjack: 9d198d6e19909b3b113a38c5f06f7bb8eedd0427
+  Google-Mobile-Ads-SDK: 91c4f66163495da5cca0af11a73aae714327fbf9
+  GoogleAnalytics-iOS-SDK: ee5322bf919d731d34ff3c8d891301e8f1e0e873
   HYUtils: 474bd5119cdc256db7c1869163b336255e39fdc9
-  JDStatusBarNotification: 8801f6fcd7e2c2a8b01aaea5a9b049b1cc395491
-  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
+  JDStatusBarNotification: ac0b8550e761a0ab01696a6592564ff17698ca43
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

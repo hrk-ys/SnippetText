@@ -10,6 +10,7 @@
 
 #import <GAI.h>
 
+
 @implementation SPTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -29,8 +30,7 @@
     // Initialize tracker.
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-42236549-4"];
 
-    
-    [MagicalRecord setupAutoMigratingCoreDataStack];
+    [self setupCoreData];
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -70,6 +70,45 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupCoreData
+{
+//    [MagicalRecord setupAutoMigratingCoreDataStack];    return;
+    NSString* storeName = [MagicalRecord defaultStoreName];
+    NSURL* fileUrl = [NSPersistentStore MR_urlForStoreName:storeName];
+
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.net.hrk-ys.SnippetText"];
+
+    NSFileManager* fm = [NSFileManager defaultManager];
+    if ([fm fileExistsAtPath:[fileUrl path]]) {
+        
+        NSString* dir = [NSPersistentStore MR_applicationStorageDirectory];
+
+
+        NSError* error = nil;
+        for (NSString* file in [fm contentsOfDirectoryAtPath:dir error:nil]) {
+            [fm moveItemAtPath:[dir stringByAppendingPathComponent:file]
+                        toPath:[[storeURL URLByAppendingPathComponent:file] path]
+                        error:&error];
+        }
+        
+        [[NSFileManager defaultManager] moveItemAtURL:fileUrl toURL:storeURL error:&error];
+    }
+
+    if ([NSPersistentStoreCoordinator MR_defaultStoreCoordinator] != nil) return;
+    
+    NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    
+
+    NSDictionary *options = [[coordinator class] MR_autoMigrationOptions];
+    storeURL = [storeURL URLByAppendingPathComponent:storeName];
+    [coordinator MR_addSqliteStoreNamed:storeURL withOptions:options];
+
+    [NSPersistentStoreCoordinator MR_setDefaultStoreCoordinator:coordinator];
+    
+    [NSManagedObjectContext MR_initializeDefaultContextWithCoordinator:coordinator];
 }
 
 @end

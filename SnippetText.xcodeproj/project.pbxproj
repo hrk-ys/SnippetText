@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C7AA3B401FD452389F342E3 /* libPods-SnippetKeyboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A933A41539CB4C0D99FDE97E /* libPods-SnippetKeyboard.a */; };
 		DC4AEB26FE4B4305A42A7D9B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE177FAC288646B281DD895C /* libPods.a */; };
 		E9087A6D18CB50BC0072F0A1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9087A6C18CB50BC0072F0A1 /* Settings.bundle */; };
+		E9955BFB19D3317C00E6D08A /* SPTSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5E3A418CAF00F002D5E89 /* SPTSnippet.m */; };
+		E9955BFC19D3318000E6D08A /* _SPTSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5E3A218CAF00F002D5E89 /* _SPTSnippet.m */; };
+		E9955BFD19D331A500E6D08A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9D5E38B18CAD8E8002D5E89 /* Model.xcdatamodeld */; };
+		E997CDAD19D2B11F0046F931 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D5E36E18CAD8AD002D5E89 /* Images.xcassets */; };
+		E997CDAF19D2B19E0046F931 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E997CDAE19D2B19E0046F931 /* Images.xcassets */; };
 		E9B4E20519D23F2A00B30E82 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9B4E20419D23F2A00B30E82 /* LaunchScreen.xib */; };
 		E9D5E35718CAD8AC002D5E89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D5E35618CAD8AC002D5E89 /* Foundation.framework */; };
 		E9D5E35918CAD8AC002D5E89 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D5E35818CAD8AC002D5E89 /* CoreGraphics.framework */; };
@@ -29,6 +35,9 @@
 		E9D5E3A018CAEFB9002D5E89 /* SPTEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5E39F18CAEFB9002D5E89 /* SPTEditViewController.m */; };
 		E9D5E3A518CAF00F002D5E89 /* _SPTSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5E3A218CAF00F002D5E89 /* _SPTSnippet.m */; };
 		E9D5E3A618CAF00F002D5E89 /* SPTSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D5E3A418CAF00F002D5E89 /* SPTSnippet.m */; };
+		E9E74C5419D298E3009FCEC2 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E74C5319D298E3009FCEC2 /* KeyboardViewController.m */; };
+		E9E74C5719D298E3009FCEC2 /* SnippetKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E9E74C4E19D298E3009FCEC2 /* SnippetKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E9E74C5F19D29A12009FCEC2 /* ListItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9E74C5E19D29A12009FCEC2 /* ListItemView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,12 +48,46 @@
 			remoteGlobalIDString = E9D5E35218CAD8AC002D5E89;
 			remoteInfo = SnippetText;
 		};
+		E9E74C5519D298E3009FCEC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9D5E34B18CAD8AC002D5E89 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9E74C4D19D298E2009FCEC2;
+			remoteInfo = SnippetKeyboard;
+		};
+		E9E74C5819D298E3009FCEC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9D5E34B18CAD8AC002D5E89 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9E74C4D19D298E2009FCEC2;
+			remoteInfo = SnippetKeyboard;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E9E74C5D19D298E3009FCEC2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E9E74C5719D298E3009FCEC2 /* SnippetKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1642978B30BA442B99907915 /* Pods-SnippetKeyboard.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnippetKeyboard.xcconfig"; path = "Pods/Pods-SnippetKeyboard.xcconfig"; sourceTree = "<group>"; };
+		A933A41539CB4C0D99FDE97E /* libPods-SnippetKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SnippetKeyboard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE9F4CEB40449B8AAF9F4D4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		BE177FAC288646B281DD895C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9087A6C18CB50BC0072F0A1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		E946AA5019D31E7800C0D6D7 /* SnippetText.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SnippetText.entitlements; sourceTree = "<group>"; };
+		E946AA5119D32C0F00C0D6D7 /* libPods-MagicalRecord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MagicalRecord.a"; path = "Pods/build/Debug-iphoneos/libPods-MagicalRecord.a"; sourceTree = "<group>"; };
+		E9955BFE19D3329400E6D08A /* SnippetKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SnippetKeyboard.entitlements; sourceTree = "<group>"; };
+		E997CDAE19D2B19E0046F931 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E9B4E20419D23F2A00B30E82 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		E9D5E35318CAD8AC002D5E89 /* SnippetText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SnippetText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D5E35618CAD8AC002D5E89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,6 +118,11 @@
 		E9D5E3A218CAF00F002D5E89 /* _SPTSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SPTSnippet.m; sourceTree = "<group>"; };
 		E9D5E3A318CAF00F002D5E89 /* SPTSnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSnippet.h; sourceTree = "<group>"; };
 		E9D5E3A418CAF00F002D5E89 /* SPTSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSnippet.m; sourceTree = "<group>"; };
+		E9E74C4E19D298E3009FCEC2 /* SnippetKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SnippetKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E74C5119D298E3009FCEC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9E74C5219D298E3009FCEC2 /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
+		E9E74C5319D298E3009FCEC2 /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+		E9E74C5E19D29A12009FCEC2 /* ListItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListItemView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +147,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9E74C4B19D298E2009FCEC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7AA3B401FD452389F342E3 /* libPods-SnippetKeyboard.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -107,9 +163,11 @@
 			children = (
 				E9D5E35C18CAD8AC002D5E89 /* SnippetText */,
 				E9D5E37B18CAD8AD002D5E89 /* SnippetTextTests */,
+				E9E74C4F19D298E3009FCEC2 /* SnippetKeyboard */,
 				E9D5E35518CAD8AC002D5E89 /* Frameworks */,
 				E9D5E35418CAD8AC002D5E89 /* Products */,
 				AAE9F4CEB40449B8AAF9F4D4 /* Pods.xcconfig */,
+				1642978B30BA442B99907915 /* Pods-SnippetKeyboard.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +176,7 @@
 			children = (
 				E9D5E35318CAD8AC002D5E89 /* SnippetText.app */,
 				E9D5E37418CAD8AD002D5E89 /* SnippetTextTests.xctest */,
+				E9E74C4E19D298E3009FCEC2 /* SnippetKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,12 +184,14 @@
 		E9D5E35518CAD8AC002D5E89 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E946AA5119D32C0F00C0D6D7 /* libPods-MagicalRecord.a */,
 				E9D5E39C18CAE77E002D5E89 /* Reveal.framework */,
 				E9D5E35618CAD8AC002D5E89 /* Foundation.framework */,
 				E9D5E35818CAD8AC002D5E89 /* CoreGraphics.framework */,
 				E9D5E35A18CAD8AC002D5E89 /* UIKit.framework */,
 				E9D5E37518CAD8AD002D5E89 /* XCTest.framework */,
 				BE177FAC288646B281DD895C /* libPods.a */,
+				A933A41539CB4C0D99FDE97E /* libPods-SnippetKeyboard.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +199,7 @@
 		E9D5E35C18CAD8AC002D5E89 /* SnippetText */ = {
 			isa = PBXGroup;
 			children = (
+				E946AA5019D31E7800C0D6D7 /* SnippetText.entitlements */,
 				E9D5E39218CAE133002D5E89 /* CoreDataModels */,
 				E9D5E39018CADE7A002D5E89 /* Controllers */,
 				E9D5E38F18CADE74002D5E89 /* Models */,
@@ -221,6 +283,27 @@
 			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
+		E9E74C4F19D298E3009FCEC2 /* SnippetKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E9955BFE19D3329400E6D08A /* SnippetKeyboard.entitlements */,
+				E9E74C5219D298E3009FCEC2 /* KeyboardViewController.h */,
+				E9E74C5319D298E3009FCEC2 /* KeyboardViewController.m */,
+				E9E74C5E19D29A12009FCEC2 /* ListItemView.xib */,
+				E9E74C5019D298E3009FCEC2 /* Supporting Files */,
+				E997CDAE19D2B19E0046F931 /* Images.xcassets */,
+			);
+			path = SnippetKeyboard;
+			sourceTree = "<group>";
+		};
+		E9E74C5019D298E3009FCEC2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9E74C5119D298E3009FCEC2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,10 +316,13 @@
 				E9D5E35018CAD8AC002D5E89 /* Frameworks */,
 				E9D5E35118CAD8AC002D5E89 /* Resources */,
 				DF2363F9E1A54439B782F8F4 /* Copy Pods Resources */,
+				E9E74C5D19D298E3009FCEC2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E9E74C5619D298E3009FCEC2 /* PBXTargetDependency */,
+				E9E74C5919D298E3009FCEC2 /* PBXTargetDependency */,
 			);
 			name = SnippetText;
 			productName = SnippetText;
@@ -261,6 +347,25 @@
 			productReference = E9D5E37418CAD8AD002D5E89 /* SnippetTextTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E9E74C4D19D298E2009FCEC2 /* SnippetKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9E74C5C19D298E3009FCEC2 /* Build configuration list for PBXNativeTarget "SnippetKeyboard" */;
+			buildPhases = (
+				84401A1F74DF4187BDD1CA81 /* Check Pods Manifest.lock */,
+				E9E74C4A19D298E2009FCEC2 /* Sources */,
+				E9E74C4B19D298E2009FCEC2 /* Frameworks */,
+				E9E74C4C19D298E2009FCEC2 /* Resources */,
+				9C24789FDC7D429C9F67B78E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SnippetKeyboard;
+			productName = SnippetKeyboard;
+			productReference = E9E74C4E19D298E3009FCEC2 /* SnippetKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -273,9 +378,23 @@
 				TargetAttributes = {
 					E9D5E35218CAD8AC002D5E89 = {
 						DevelopmentTeam = Z8E8FLY423;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E9D5E37318CAD8AD002D5E89 = {
 						TestTargetID = E9D5E35218CAD8AC002D5E89;
+					};
+					E9E74C4D19D298E2009FCEC2 = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = Z8E8FLY423;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -294,6 +413,7 @@
 			targets = (
 				E9D5E35218CAD8AC002D5E89 /* SnippetText */,
 				E9D5E37318CAD8AD002D5E89 /* SnippetTextTests */,
+				E9E74C4D19D298E2009FCEC2 /* SnippetKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -319,6 +439,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9E74C4C19D298E2009FCEC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E997CDAF19D2B19E0046F931 /* Images.xcassets in Resources */,
+				E9E74C5F19D29A12009FCEC2 /* ListItemView.xib in Resources */,
+				E997CDAD19D2B11F0046F931 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -335,6 +465,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84401A1F74DF4187BDD1CA81 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C24789FDC7D429C9F67B78E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-SnippetKeyboard-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF2363F9E1A54439B782F8F4 /* Copy Pods Resources */ = {
@@ -378,6 +538,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9E74C4A19D298E2009FCEC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9955BFC19D3318000E6D08A /* _SPTSnippet.m in Sources */,
+				E9E74C5419D298E3009FCEC2 /* KeyboardViewController.m in Sources */,
+				E9955BFB19D3317C00E6D08A /* SPTSnippet.m in Sources */,
+				E9955BFD19D331A500E6D08A /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -385,6 +556,16 @@
 			isa = PBXTargetDependency;
 			target = E9D5E35218CAD8AC002D5E89 /* SnippetText */;
 			targetProxy = E9D5E37918CAD8AD002D5E89 /* PBXContainerItemProxy */;
+		};
+		E9E74C5619D298E3009FCEC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9E74C4D19D298E2009FCEC2 /* SnippetKeyboard */;
+			targetProxy = E9E74C5519D298E3009FCEC2 /* PBXContainerItemProxy */;
+		};
+		E9E74C5919D298E3009FCEC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9E74C4D19D298E2009FCEC2 /* SnippetKeyboard */;
+			targetProxy = E9E74C5819D298E3009FCEC2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -493,6 +674,7 @@
 			baseConfigurationReference = AAE9F4CEB40449B8AAF9F4D4 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SnippetText/SnippetText.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -502,9 +684,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnippetText/SnippetText-Prefix.pch";
 				INFOPLIST_FILE = "SnippetText/SnippetText-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51C4F166-6E25-4DAC-8EED-15B207006DA9";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -514,8 +697,9 @@
 			baseConfigurationReference = AAE9F4CEB40449B8AAF9F4D4 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = SnippetText/SnippetText.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/work/github/SnippetText,
@@ -523,9 +707,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SnippetText/SnippetText-Prefix.pch";
 				INFOPLIST_FILE = "SnippetText/SnippetText-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51C4F166-6E25-4DAC-8EED-15B207006DA9";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -572,6 +757,58 @@
 			};
 			name = Release;
 		};
+		E9E74C5A19D298E3009FCEC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1642978B30BA442B99907915 /* Pods-SnippetKeyboard.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = SnippetKeyboard/SnippetKeyboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SnippetKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E9E74C5B19D298E3009FCEC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1642978B30BA442B99907915 /* Pods-SnippetKeyboard.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = SnippetKeyboard/SnippetKeyboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = SnippetKeyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -598,6 +835,15 @@
 			buildConfigurations = (
 				E9D5E38918CAD8AD002D5E89 /* Debug */,
 				E9D5E38A18CAD8AD002D5E89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9E74C5C19D298E3009FCEC2 /* Build configuration list for PBXNativeTarget "SnippetKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9E74C5A19D298E3009FCEC2 /* Debug */,
+				E9E74C5B19D298E3009FCEC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
