@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *delButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *modeLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *modeSwitch;
+
 
 @end
 
@@ -113,8 +116,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SPTSnippet* snippet = self.dataSource[indexPath.row];
-    [self.textDocumentProxy insertText:snippet.content];
+    
+    if (_modeSwitch.on) {
+        [self.textDocumentProxy insertText:snippet.content];
+    } else {
+        UIPasteboard *pastebd = [UIPasteboard generalPasteboard];
+        [pastebd setValue:snippet.content forPasteboardType:@"public.utf8-plain-text"];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 #pragma mark - Button Action
@@ -161,13 +171,17 @@
     [self.textDocumentProxy deleteBackward];
 }
 
+- (IBAction)changedMode:(id)sender {
+    _modeLabel.title = _modeSwitch.on ? @"挿入" : @"コピー";
+}
+
 #pragma mark - Snippet data
 
 - (void)setupCoreData
 {
     NSString* storeName = @"SnippetText.sqlite";
     NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.net.hrk-ys.SnippetText"];
-    NSLog(@"storeURL:%@", storeURL.path);
+
     if ([NSPersistentStoreCoordinator MR_defaultStoreCoordinator] != nil) return;
     
     NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];

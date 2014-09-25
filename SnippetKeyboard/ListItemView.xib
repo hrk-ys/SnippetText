@@ -8,6 +8,8 @@
             <connections>
                 <outlet property="delButton" destination="0y7-JH-vgF" id="WjA-bf-eMb"/>
                 <outlet property="leftButton" destination="hAP-Jn-8ig" id="vBN-fL-D9N"/>
+                <outlet property="modeLabel" destination="uPz-fc-oni" id="0l6-83-lhk"/>
+                <outlet property="modeSwitch" destination="gA6-Hp-wrL" id="Eoz-ir-RMt"/>
                 <outlet property="rightButton" destination="oqr-GM-q08" id="M4h-al-8Wr"/>
                 <outlet property="snippetButton" destination="9gB-BL-CHd" id="A6C-4f-KsH"/>
                 <outlet property="view" destination="iN0-l3-epB" id="pqv-hu-v3U"/>
@@ -39,6 +41,19 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="d5K-Fk-6uL"/>
+                        <barButtonItem title="挿入" id="uPz-fc-oni">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" id="X7f-OI-BVn">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="gA6-Hp-wrL">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changedMode:" destination="-1" eventType="valueChanged" id="joM-EU-YDp"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="gil-5u-jbg"/>
                         <barButtonItem style="plain" id="cY0-6p-ySs">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hAP-Jn-8ig">
                                 <rect key="frame" x="277" y="7" width="30" height="30"/>
@@ -69,7 +84,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="sih-le-HaF"/>
                         <barButtonItem style="plain" id="7s8-sl-hAp">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0y7-JH-vgF">
-                                <rect key="frame" x="538" y="7" width="30" height="30"/>
+                                <rect key="frame" x="554" y="7" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.65882354974746704" green="0.70980393886566162" blue="0.75294125080108643" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="削除">
