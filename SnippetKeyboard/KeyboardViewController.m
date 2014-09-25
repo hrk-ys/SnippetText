@@ -13,10 +13,22 @@
 
 @property (nonatomic) NSArray* dataSource;
 @property (weak, nonatomic) IBOutlet UIButton *snippetButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
+@property (weak, nonatomic) IBOutlet UIButton *delButton;
 
 @end
 
 @implementation KeyboardViewController
+
+- (void)setupToolButton:(UIButton*)button {
+    [button.layer setCornerRadius:3.0f];
+    [button.layer setShadowColor:[UIColor blackColor].CGColor];
+    [button.layer setShadowOffset:CGSizeMake(1, 1)];
+    button.layer.shadowOpacity = 0.5f;
+    button.layer.shadowRadius = 1.0f;
+
+}
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
@@ -34,8 +46,11 @@
     UINib* nib = [UINib nibWithNibName:@"ListItemView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     
-    [self.snippetButton.layer setCornerRadius:3.0f];
-    [self.snippetButton setClipsToBounds:YES];
+    [_snippetButton setClipsToBounds:YES];
+    [self setupToolButton:_snippetButton];
+    [self setupToolButton:_leftButton];
+    [self setupToolButton:_rightButton];
+    [self setupToolButton:_delButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +87,7 @@
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"";
+    return @"Snippet Text";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -86,12 +101,11 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-        cell.backgroundColor = [UIColor clearColor];
     }
     
     SPTSnippet* snippet = self.dataSource[indexPath.row];
     
-    cell.textLabel.text = snippet.title;
+    cell.textLabel.text = snippet.title && snippet.title.length > 0 ? snippet.title : snippet.content;
     
     return cell;
 }
@@ -153,16 +167,16 @@
 {
     NSString* storeName = @"SnippetText.sqlite";
     NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.net.hrk-ys.SnippetText"];
-    
+    NSLog(@"storeURL:%@", storeURL.path);
     if ([NSPersistentStoreCoordinator MR_defaultStoreCoordinator] != nil) return;
     
     NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
     
     
-    NSDictionary *options = [[coordinator class] MR_autoMigrationOptions];
+//    NSDictionary *options = [[coordinator class] MR_autoMigrationOptions];
     storeURL = [storeURL URLByAppendingPathComponent:storeName];
-    [coordinator MR_addSqliteStoreNamed:storeURL withOptions:options];
+    [coordinator MR_addSqliteStoreNamed:storeURL withOptions:nil];
     
     [NSPersistentStoreCoordinator MR_setDefaultStoreCoordinator:coordinator];
     
