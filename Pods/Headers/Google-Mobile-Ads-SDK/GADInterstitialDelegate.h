@@ -1,1 +1,1 @@
-../../Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0/GADInterstitialDelegate.h
+../../Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-6.12.0/GADInterstitialDelegate.h

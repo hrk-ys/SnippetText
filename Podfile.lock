@@ -4,7 +4,7 @@ PODS:
   - CocoaLumberjack/Core (1.8.1)
   - CocoaLumberjack/Extensions (1.8.1):
     - CocoaLumberjack/Core
-  - Google-Mobile-Ads-SDK (6.8.0)
+  - Google-Mobile-Ads-SDK (6.12.0)
   - GoogleAnalytics-iOS-SDK (3.0.3)
   - HYUtils (0.0.4):
     - CocoaLumberjack
@@ -13,7 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - CocoaLumberjack (= 1.8.1)
-  - Google-Mobile-Ads-SDK (= 6.8.0)
+  - Google-Mobile-Ads-SDK (= 6.12.0)
   - GoogleAnalytics-iOS-SDK (= 3.0.3)
   - HYUtils (from `https://github.com/hrk-ys/HYUtils.git`, commit `806679b2773695602825a57ff1d7b8edb4e63bdb`)
   - JDStatusBarNotification (= 1.4.7)
@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 9d198d6e19909b3b113a38c5f06f7bb8eedd0427
-  Google-Mobile-Ads-SDK: 91c4f66163495da5cca0af11a73aae714327fbf9
+  Google-Mobile-Ads-SDK: b1b5cfd1b604a8412faa5536586b13a4b640f344
   GoogleAnalytics-iOS-SDK: ee5322bf919d731d34ff3c8d891301e8f1e0e873
   HYUtils: 474bd5119cdc256db7c1869163b336255e39fdc9
   JDStatusBarNotification: ac0b8550e761a0ab01696a6592564ff17698ca43

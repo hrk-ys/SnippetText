@@ -1,7 +1,7 @@
 platform :ios, 7.0
 pod 'MagicalRecord/Shorthand', '2.2'
 pod 'GoogleAnalytics-iOS-SDK', '3.0.3'
-pod 'Google-Mobile-Ads-SDK', '6.8.0'
+pod 'Google-Mobile-Ads-SDK', '6.12.0'
 pod 'JDStatusBarNotification', '1.4.7'
 pod 'CocoaLumberjack', '1.8.1'
 

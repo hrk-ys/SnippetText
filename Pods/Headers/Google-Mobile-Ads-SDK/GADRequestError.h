@@ -1,1 +1,1 @@
-../../Google-Mobile-Ads-SDK/GoogleAdMobAdsSdkiOS-6.8.0/GADRequestError.h
+../../Google-Mobile-Ads-SDK/GoogleMobileAdsSdkiOS-6.12.0/GADRequestError.h
