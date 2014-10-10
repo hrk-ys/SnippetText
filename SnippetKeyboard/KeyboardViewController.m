@@ -46,10 +46,27 @@
     
     self.dataSource = [SPTSnippet findAllSortedBy:@"orderNum" ascending:YES];
 
+    if (self.dataSource.count == 0) {
+        NSManagedObjectContext* context = [NSManagedObjectContext contextForCurrentThread];
+        NSArray* words = @[
+                           @"ここには",
+                           @"SnippetTextアプリで設定した",
+                           @"内容が表示されます",
+                           @"よく使うメールアドレスやパスワードなど",
+                           @"ワンタップで入力orコピーができます"];
+        NSMutableArray* list = @[].mutableCopy;
+        for (NSString* word in words) {
+            SPTSnippet* snippet = [SPTSnippet createInContext:context];
+            snippet.title = word;
+            snippet.content = word;
+            [list addObject:snippet];
+        }
+        self.dataSource = list;
+    }
+    
     UINib* nib = [UINib nibWithNibName:@"ListItemView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     
-    [_snippetButton setClipsToBounds:YES];
     [self setupToolButton:_snippetButton];
     [self setupToolButton:_leftButton];
     [self setupToolButton:_rightButton];

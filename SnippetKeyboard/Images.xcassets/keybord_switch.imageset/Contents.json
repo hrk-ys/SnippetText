@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "next_input_mode.png"
+      "filename" : "keybord_switch.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "keybord_switch@2x.png"
     },
     {
       "idiom" : "universal",
