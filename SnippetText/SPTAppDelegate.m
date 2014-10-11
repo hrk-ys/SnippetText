@@ -79,6 +79,7 @@
     NSURL* fileUrl = [NSPersistentStore MR_urlForStoreName:storeName];
 
     NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.net.hrk-ys.SnippetText"];
+    LOG(@"%@", storeURL);
 
     NSFileManager* fm = [NSFileManager defaultManager];
     if ([fm fileExistsAtPath:[fileUrl path]]) {
