@@ -12,12 +12,25 @@
 @interface KeyboardViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSArray* dataSource;
-@property (weak, nonatomic) IBOutlet UIButton *snippetButton;
+
+@property (weak, nonatomic) IBOutlet UIView *keyboardView;
+@property (weak, nonatomic) IBOutlet UIView *row1;
+@property (weak, nonatomic) IBOutlet UIView *row2;
+@property (weak, nonatomic) IBOutlet UIView *row3;
+@property (weak, nonatomic) IBOutlet UIView *row4;
+
+@property (weak, nonatomic) IBOutlet UIView *listView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *earthButton1;
+@property (weak, nonatomic) IBOutlet UIButton *earthButton2;
+@property (weak, nonatomic) IBOutlet UIButton *keyboardButton;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *delButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *modeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *modeLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *modeSwitch;
+
+@property (nonatomic) BOOL capsLockOn;
 
 
 @end
@@ -26,10 +39,10 @@
 
 - (void)setupToolButton:(UIButton*)button {
     [button.layer setCornerRadius:3.0f];
-    [button.layer setShadowColor:[UIColor blackColor].CGColor];
-    [button.layer setShadowOffset:CGSizeMake(1, 1)];
-    button.layer.shadowOpacity = 0.5f;
-    button.layer.shadowRadius = 1.0f;
+//    [button.layer setShadowColor:[UIColor blackColor].CGColor];
+//    [button.layer setShadowOffset:CGSizeMake(1, 1)];
+//    button.layer.shadowOpacity = 0.5f;
+//    button.layer.shadowRadius = 1.0f;
 
 }
 
@@ -45,7 +58,7 @@
     [self setupCoreData];
     
     self.dataSource = [SPTSnippet findAllSortedBy:@"orderNum" ascending:YES];
-
+   
     if (self.dataSource.count == 0) {
         NSManagedObjectContext* context = [NSManagedObjectContext contextForCurrentThread];
         NSArray* words = @[
@@ -67,10 +80,11 @@
     UINib* nib = [UINib nibWithNibName:@"ListItemView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     
-    [self setupToolButton:_snippetButton];
-    [self setupToolButton:_leftButton];
-    [self setupToolButton:_rightButton];
-    [self setupToolButton:_delButton];
+    self.keyboardView.hidden =[self firstListView];
+    self.listView.hidden = !self.keyboardView.hidden;
+    
+    [self setupToolButton:self.earthButton1];
+    [self setupToolButton:self.earthButton2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,16 +113,34 @@
 }
 
 
+#pragma mark - default
+
+- (BOOL)firstListView {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"first_list_view"];
+}
+- (void)setFirstListView:(BOOL)flg {
+    [[NSUserDefaults standardUserDefaults] setBool:flg forKey:@"first_list_view"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+#pragma mark - Keyboard chage
 
 
+
+- (IBAction)changeKeyboard:(id)sender {
+    self.keyboardView.hidden = !self.keyboardView.hidden;
+    self.listView.hidden = !self.keyboardView.hidden;
+    [self setFirstListView:self.keyboardView.hidden];
+}
 
 
 #pragma mark - Table
 
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Snippet Text";
-}
+//- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return @"Snippet Text";
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -121,6 +153,10 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.highlightedTextColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:13.0f];
     }
     
     SPTSnippet* snippet = self.dataSource[indexPath.row];
@@ -189,7 +225,57 @@
 }
 
 - (IBAction)changedMode:(id)sender {
-    _modeLabel.title = _modeSwitch.on ? @"挿入" : @"コピー";
+    _modeLabel.text = _modeSwitch.on ? @"INSERT" : @"COPY";
+}
+
+
+#pragma mark - Keyboard View Button
+
+- (IBAction)capsLockPressed:(id)sender {
+    self.capsLockOn = !self.capsLockOn;
+    
+    [self changeCaps:self.row1];
+    [self changeCaps:self.row2];
+    [self changeCaps:self.row3];
+    [self changeCaps:self.row4];
+}
+
+- (IBAction)keyPressed:(UIButton*)button {
+    NSString* string = [button titleForState:UIControlStateNormal];
+    [self.textDocumentProxy insertText:string];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2.0, 2.0);
+    } completion:^(BOOL finished) {
+        button.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1, 1);
+    }];
+}
+
+- (IBAction)backSpacePressed:(UIButton*)button {
+    [self.textDocumentProxy deleteBackward];
+}
+
+- (IBAction)spacePressed:(UIButton*)button {
+    [self.textDocumentProxy insertText:@" "];
+}
+
+- (IBAction)returnPressed:(UIButton*)button {
+    [self.textDocumentProxy insertText:@"\n"];
+}
+
+- (void)changeCaps:(UIView*)containerView {
+    
+    for (UIView* view in containerView.subviews) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton* button = (UIButton*)view;
+            NSString* title = [button titleForState:UIControlStateNormal];
+            if (self.capsLockOn) {
+                [button setTitle:[title uppercaseString] forState:UIControlStateNormal];
+            } else {
+                [button setTitle:[title lowercaseString] forState:UIControlStateNormal];
+            }
+        }
+    }
 }
 
 #pragma mark - Snippet data
