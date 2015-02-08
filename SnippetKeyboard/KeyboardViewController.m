@@ -175,6 +175,9 @@
     } else {
         UIPasteboard *pastebd = [UIPasteboard generalPasteboard];
         [pastebd setValue:snippet.content forPasteboardType:@"public.utf8-plain-text"];
+        
+        _modeSwitch.on = YES;
+        [self changedMode:_modeSwitch];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
